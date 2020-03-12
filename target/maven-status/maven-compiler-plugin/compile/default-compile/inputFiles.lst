@@ -1,0 +1,15 @@
+/Users/chineduojiteli/Documents/Netbeans Project/napp/data-aggregation-api/src/main/java/com/data/aggr/service/DataAggregationService.java
+/Users/chineduojiteli/Documents/Netbeans Project/napp/data-aggregation-api/src/main/java/com/data/aggr/entity/Ping.java
+/Users/chineduojiteli/Documents/Netbeans Project/napp/data-aggregation-api/src/main/java/com/data/aggr/config/SwaggerConfig.java
+/Users/chineduojiteli/Documents/Netbeans Project/napp/data-aggregation-api/src/main/java/com/data/aggr/controller/ClientController.java
+/Users/chineduojiteli/Documents/Netbeans Project/napp/data-aggregation-api/src/main/java/com/data/aggr/repository/PingRepository.java
+/Users/chineduojiteli/Documents/Netbeans Project/napp/data-aggregation-api/src/main/java/com/data/aggr/entity/ClientInfo.java
+/Users/chineduojiteli/Documents/Netbeans Project/napp/data-aggregation-api/src/main/java/com/data/aggr/DataAggregationApp.java
+/Users/chineduojiteli/Documents/Netbeans Project/napp/data-aggregation-api/src/main/java/com/data/aggr/service/ClientInfoService.java
+/Users/chineduojiteli/Documents/Netbeans Project/napp/data-aggregation-api/src/main/java/com/data/aggr/repository/DataAggregationRepository.java
+/Users/chineduojiteli/Documents/Netbeans Project/napp/data-aggregation-api/src/main/java/com/data/aggr/dto/ServiceResponse.java
+/Users/chineduojiteli/Documents/Netbeans Project/napp/data-aggregation-api/src/main/java/com/data/aggr/repository/ClientInfoRepository.java
+/Users/chineduojiteli/Documents/Netbeans Project/napp/data-aggregation-api/src/main/java/com/data/aggr/controller/DataAggregationController.java
+/Users/chineduojiteli/Documents/Netbeans Project/napp/data-aggregation-api/src/main/java/com/data/aggr/service/PingService.java
+/Users/chineduojiteli/Documents/Netbeans Project/napp/data-aggregation-api/src/main/java/com/data/aggr/entity/Transaction.java
+/Users/chineduojiteli/Documents/Netbeans Project/napp/data-aggregation-api/src/main/java/com/data/aggr/controller/PingController.java
