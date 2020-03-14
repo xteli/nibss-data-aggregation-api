@@ -19,4 +19,5 @@ import lombok.Setter;
 @Setter
 public class DataResponse extends ServiceResponse{
     
+    private String requestId;
 }

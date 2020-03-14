@@ -5,7 +5,7 @@
  */
 package com.data.aggr.repository;
 
-import com.data.aggr.entity.Transaction;
+import com.data.aggr.entity.TransactionData;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -14,6 +14,6 @@ import org.springframework.stereotype.Repository;
  * @author chineduojiteli
  */
 @Repository
-public interface DataAggregationRepository extends JpaRepository<Transaction, Long>{
+public interface DataAggregationRepository extends JpaRepository<TransactionData, Long>{
     
 }

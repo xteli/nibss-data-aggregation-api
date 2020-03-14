@@ -6,6 +6,7 @@
 package com.data.aggr.entity;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,12 +20,14 @@ import lombok.Setter;
  * @author chineduojiteli
  */
 @Entity
-@Table(name = "transaction")
+@Table(name = "systemaudit")
 @Getter
 @Setter
-public class Transaction implements Serializable{
+public class SystemAudit implements Serializable{
     
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "Id")
     private long id;
 }

@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import javax.validation.Valid;
+import org.springframework.validation.BindingResult;
 
 /**
  *
@@ -35,7 +37,7 @@ public class DataAggregationController {
     }
 
     @RequestMapping(value = "/send", method = RequestMethod.POST, produces = "application/json", consumes = "application/json")
-    public ResponseEntity<DataResponse> sendData(DataRequest dataRequest,@RequestHeader HttpHeaders headers) {
+    public ResponseEntity<DataResponse> sendData(@Valid DataRequest dataRequest,BindingResult bindingResult,@RequestHeader HttpHeaders headers) {
         return ResponseEntity.ok(dataAggrService.sendData(dataRequest,headers));
     }
     

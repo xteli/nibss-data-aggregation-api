@@ -7,9 +7,11 @@ package com.data.aggr.service;
 
 import com.data.aggr.dto.request.DataRequest;
 import com.data.aggr.dto.response.DataResponse;
+import com.data.aggr.entity.TransactionData;
 import com.data.aggr.repository.DataAggregationRepository;
 import com.data.aggr.util.StatusCode;
 import com.data.aggr.util.Util;
+import java.util.Date;
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -44,6 +46,7 @@ public class DataAggregationService {
         logger.info(".. inside sendData()");
         DataResponse dataResponse = new DataResponse();
         String status = "", message = "";
+        String requestId = "";
         try {
             //perform header validation
             logger.info("About validating header items");
@@ -51,6 +54,10 @@ public class DataAggregationService {
             if (errors.isEmpty()) {
                 if (dataRequest != null) {
 
+                    TransactionData transData = new TransactionData();
+                    transData.setSystemDate(new Date());
+                    transData.setRequestID(requestId);
+                    dataAggrRepository.save(transData);
                 } else {
                     status = StatusCode.EMPTY_REQUEST;
                     message = "EMPTY REQUEST";
@@ -73,6 +80,7 @@ public class DataAggregationService {
             dataResponse.setStatus(status);
             dataResponse.setMessage(message);
             if (status.equals(StatusCode.SUCCESSFUL)) {
+                dataResponse.setRequestId(requestId);
             }
         }
         logger.info(".. leaving sendData()");
