@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.data.aggr.dto;
+package com.data.aggr.dto.request;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;
@@ -16,9 +16,7 @@ import lombok.Setter;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Getter
 @Setter
-public class ServiceResponse {
-
-    private String status;
-    private String message;
-  
+public class ResetRequest {
+    
+    private String username;
 }

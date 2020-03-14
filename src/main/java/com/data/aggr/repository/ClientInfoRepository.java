@@ -14,6 +14,8 @@ import org.springframework.stereotype.Repository;
  * @author chineduojiteli
  */
 @Repository
-public interface ClientInfoRepository extends JpaRepository<ClientInfo, Long>{
-    
+public interface ClientInfoRepository extends JpaRepository<ClientInfo, Long> {
+
+    ClientInfo findByUsername(String username);
+
 }

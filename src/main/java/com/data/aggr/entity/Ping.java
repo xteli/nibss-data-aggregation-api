@@ -6,6 +6,7 @@
 package com.data.aggr.entity;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,7 +27,10 @@ public class Ping implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "Id")
     private long id;
+    @Column(name = "Status")
     private String status;
+    @Column(name = "Message")
     private String message;
 }
