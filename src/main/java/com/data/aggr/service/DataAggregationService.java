@@ -18,6 +18,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.BindingResult;
 
 /**
  *
@@ -30,6 +31,7 @@ public class DataAggregationService {
     Logger logger = LoggerFactory.getLogger(DataAggregationService.class);
     DataAggregationRepository dataAggrRepository;
     Util util;
+    String errorMessage;
 
     @Autowired
     public DataAggregationService(DataAggregationRepository dataAggrRepository) {
@@ -42,22 +44,41 @@ public class DataAggregationService {
         this.util = util;
     }
 
-    public DataResponse sendData(DataRequest dataRequest, HttpHeaders headers) {
+    public DataResponse sendData(DataRequest dataRequest, BindingResult bindingResult, HttpHeaders headers) {
         logger.info(".. inside sendData()");
         DataResponse dataResponse = new DataResponse();
         String status = "", message = "";
         String requestId = "";
+        builder = new StringBuilder();
         try {
             //perform header validation
             logger.info("About validating header items");
             List<String> errors = util.doHeaderValidation(headers);
             if (errors.isEmpty()) {
                 if (dataRequest != null) {
+                    if (bindingResult.hasErrors()) {
+                        bindingResult
+                                .getFieldErrors()
+                                .stream()
+                                .forEach(error -> {
+                                    builder.append(error.getDefaultMessage()).append("\n");
+                                });
+                        status = StatusCode.CONSTRAINT_VIOLATION;
+                        message = builder.toString();
+                    } else {
+                        TransactionData transData = new TransactionData();
+                        transData.setSystemDate(new Date());
+                        transData.setRequestID(requestId);
+                        TransactionData dataSaved = dataAggrRepository.save(transData);
+                        if (dataSaved != null) {
+                            status = StatusCode.SUCCESSFUL;
+                            message = "SUCCESSFUL";
+                        } else {
+                            status = StatusCode.DATABASE_EXCEPTION;
+                            message = "FAILED TO SAVE IN DATABASE";
+                        }
+                    }
 
-                    TransactionData transData = new TransactionData();
-                    transData.setSystemDate(new Date());
-                    transData.setRequestID(requestId);
-                    dataAggrRepository.save(transData);
                 } else {
                     status = StatusCode.EMPTY_REQUEST;
                     message = "EMPTY REQUEST";

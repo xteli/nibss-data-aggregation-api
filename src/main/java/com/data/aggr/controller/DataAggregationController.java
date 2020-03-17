@@ -38,7 +38,7 @@ public class DataAggregationController {
 
     @RequestMapping(value = "/send", method = RequestMethod.POST, produces = "application/json", consumes = "application/json")
     public ResponseEntity<DataResponse> sendData(@Valid DataRequest dataRequest,BindingResult bindingResult,@RequestHeader HttpHeaders headers) {
-        return ResponseEntity.ok(dataAggrService.sendData(dataRequest,headers));
+        return ResponseEntity.ok(dataAggrService.sendData(dataRequest,bindingResult,headers));
     }
     
     
