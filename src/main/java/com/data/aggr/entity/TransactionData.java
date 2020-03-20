@@ -39,67 +39,67 @@ public class TransactionData implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id")
+    @Column(name = "id")
     private long id;
-    @Column(name = "RequestID", nullable = false)
+    @Column(name = "request_id", nullable = false)
     private String requestID;
-    @Column(name = "TransactionID", nullable = false)
+    @Column(name = "transaction_id", nullable = false)
     private String transactionID;
 
     //sender institution information
-    @Column(name = "SenderAccountNumber", nullable = false)
+    @Column(name = "sender_account_number", nullable = false)
     private String senderAccountNumber;
-    @Column(name = "SenderInstitutionCode", nullable = false)
+    @Column(name = "sender_institution_code", nullable = false)
     private String senderInstCode;
-    @Column(name = "SenderInstitutionBranchCode", nullable = false)
+    @Column(name = "sender_institution_branch_code", nullable = false)
     private String senderInstBranchCode;
-    @Column(name = "SenderInstitutionType", nullable = false)
+    @Column(name = "sender_institution_type", nullable = false)
     private InstitutionType senderInstitutionType;
-    @Column(name = "SenderInstitutionUniqueID", nullable = false)
+    @Column(name = "sender_institution_unique_id", nullable = false)
     private String senderInstitutionUniqueID;
 
     //receiving institution information
-    @Column(name = "ReceivingAccountNumber", nullable = false)
+    @Column(name = "receiving_account_number", nullable = false)
     private String receivingAccountNumber;
-    @Column(name = "ReceivingInstitutionCode", nullable = false)
+    @Column(name = "receiving_institution_code", nullable = false)
     private String receivingInstCode;
-    @Column(name = "ReceivingInstitutionBranchCode", nullable = false)
+    @Column(name = "receiving_institution_branch_code", nullable = false)
     private String receivingInstBranchCode;
-    @Column(name = "ReceivingInstitutionType", nullable = false)
+    @Column(name = "receiving_institution_type", nullable = false)
     private InstitutionType receivingInstitutionType;
-    @Column(name = "ReceivingInstitutionUniqueID", nullable = false)
+    @Column(name = "receiving_institution_unique_id", nullable = false)
     private String receivingInstitutionUniqueID;
 
     //other parameters
-    @Column(name = "PaymentType", nullable = false)
+    @Column(name = "payment_type", nullable = false)
     private PaymentType paymentType;
-    @Column(name = "TransactionDate", nullable = false, columnDefinition = "DATETIME")
+    @Column(name = "transaction_date", nullable = false, columnDefinition = "DATE")
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     @JsonSerialize(using = DateJsonUtil.class)
     private Date transactionDate;
-    @Column(name = "TransactionAmount", nullable = false)
+    @Column(name = "transaction_amount", nullable = false)
     private BigDecimal transactionAmount;
-    @Column(name = "TransactionFee", nullable = true)
+    @Column(name = "transaction_fee", nullable = true)
     private BigDecimal transactionFee;
-    @Column(name = "TransactionVAT", nullable = true)
+    @Column(name = "transaction_vat", nullable = true)
     private BigDecimal transactionVAT;
-    @Column(name = "ActualBankIncome", nullable = true)
+    @Column(name = "actual_bank_income", nullable = true)
     private BigDecimal actualBankIncome;
-    @Column(name = "AccountType", nullable = false)
+    @Column(name = "account_type", nullable = false)
     private AccountType accountType;
-    @Column(name = "AccountClass", nullable = false)
+    @Column(name = "account_class", nullable = false)
     private AccountClass accountClass;
-    @Column(name = "SharedPSSPParty", nullable = false)
+    @Column(name = "shared_pssp_party", nullable = false)
     private String sharedPSSPParty;
-    @Column(name = "AccountDesgination", nullable = false)
+    @Column(name = "account_desgination", nullable = false)
     private AccountDesignation accountDesignation;
-    @Column(name = "Currency", nullable = false)
+    @Column(name = "currency", nullable = false)
     private Currency currency;
-    @Column(name = "Channel", nullable = false)
+    @Column(name = "channel", nullable = false)
     private Channel channel;
 
     //system date
-    @Column(name = "SystemDate", nullable = false, columnDefinition = "DATETIME")
+    @Column(name = "system_date", nullable = false, columnDefinition = "DATE")
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     @JsonSerialize(using = DateJsonUtil.class)
     private Date systemDate;

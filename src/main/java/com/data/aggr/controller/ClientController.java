@@ -8,9 +8,12 @@ package com.data.aggr.controller;
 import com.data.aggr.dto.request.ResetRequest;
 import com.data.aggr.dto.response.ResetResponse;
 import com.data.aggr.service.ClientInfoService;
+import javax.validation.Valid;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -32,7 +35,7 @@ public class ClientController {
     }
 
     @RequestMapping(value = "/reset", method = RequestMethod.POST, produces = "application/json", consumes = "application/json")
-    public ResponseEntity<ResetResponse> reset(ResetRequest resetRequest) {
+    public ResponseEntity<ResetResponse> reset(@RequestBody ResetRequest resetRequest) {
         return ResponseEntity.ok(clientInfoService.reset(resetRequest));
     }
     

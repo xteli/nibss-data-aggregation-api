@@ -13,7 +13,12 @@ import com.data.aggr.repository.ClientInfoRepository;
 import com.data.aggr.util.StatusCode;
 import com.data.aggr.util.Util;
 import java.util.Date;
+import java.util.Set;
 import java.util.UUID;
+import javax.validation.ConstraintViolation;
+import javax.validation.Validation;
+import javax.validation.Validator;
+import javax.validation.ValidatorFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +34,7 @@ public class ClientInfoService {
     ServiceResponse serviceResponse = new ServiceResponse();
     Logger logger = LoggerFactory.getLogger(ClientInfoService.class);
     ClientInfoRepository clientInfoRepository;
+    StringBuilder builder = null;
 
     @Autowired
     public ClientInfoService(ClientInfoRepository clientInfoRepository) {
@@ -40,9 +46,16 @@ public class ClientInfoService {
         ResetResponse resetResponse = new ResetResponse();
         String status = "", message = "";
         String iv = "", key = "";
+        builder = new StringBuilder();
         try {
             if (resetRequest != null) {
+//                ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+//                Validator validator = factory.getValidator();
+//                Set<ConstraintViolation<ResetRequest>> violations = validator.validate(resetRequest);
                 if (null == resetRequest.getUsername()) {
+//                    violations.stream().forEach(violation -> {
+//                        builder.append(violation.getMessage()).append("\n");
+//                    });
                     status = StatusCode.MISSING_PARAMETERS;
                     message = "MISSING CLIENT USERNAME";
                 } else {

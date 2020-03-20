@@ -17,6 +17,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ResetRequest {
-    
+
+//    @NotEmpty(message="Missing Username")
+//    @ApiModelProperty(notes = "Client Username", required = true)
     private String username;
 }

@@ -5,7 +5,6 @@
  */
 package com.data.aggr.entity;
 
-import com.data.aggr.util.Enum.LifespanType;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
@@ -34,30 +33,30 @@ public class ClientInfo implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id")
+    @Column(name = "id")
     private long id;
-    @Column(name = "Username", nullable = false)
+    @Column(name = "username", nullable = false)
     private String username;
-    @Column(name = "Email", nullable = true)
+    @Column(name = "email", nullable = true)
     private String email;
-    @Column(name = "ClientName", nullable = true)
+    @Column(name = "client_name", nullable = true)
     private String clientName;
-    @Column(name = "Active", nullable = false)
+    @Column(name = "active", nullable = false)
     private boolean active = true;
    // @JsonProperty("iv")
-    @Column(name = "Password", nullable = true)
+    @Column(name = "password", nullable = true)
     private String password;
    // @JsonProperty("key")
-    @Column(name = "Token", nullable = true)
+    @Column(name = "token", nullable = true)
     private String token;
-    @Column(name = "Lifespan", nullable = false)
-    private int lifespan;
-    @Column(name = "LifespanType", nullable = false)
-    private LifespanType lifespanType;
-    @Column(name = "DateCreated", nullable = false, columnDefinition = "DATETIME")
+//    @Column(name = "lifespan", nullable = false)
+//    private int lifespan;
+//    @Column(name = "lifespantype", nullable = false)
+//    private LifespanType lifespanType;
+    @Column(name = "date_created", nullable = false, columnDefinition = "DATE")
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date dateCreated;
-    @Column(name = "DateModified", nullable = true, columnDefinition = "DATETIME")
+    @Column(name = "date_modified", nullable = true, columnDefinition = "DATE")
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date dateModified;
 

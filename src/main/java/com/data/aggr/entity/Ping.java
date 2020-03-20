@@ -27,10 +27,10 @@ public class Ping implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id")
+    @Column(name = "id")
     private long id;
-    @Column(name = "Status")
+    @Column(name = "status")
     private String status;
-    @Column(name = "Message")
+    @Column(name = "message")
     private String message;
 }
